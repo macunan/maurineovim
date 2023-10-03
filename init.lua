@@ -42,7 +42,12 @@ P.S. You can delete this when you're done too. It's your config now :)
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
 vim.g.mapleader = ','
 vim.g.maplocalleader = ','
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+-- set termguicolors to enable highlight groups
+vim.opt.termguicolors = true
 
+-- empty setup using defaults
 -- Install package manager
 --    https://github.com/folke/lazy.nvim
 --    `:help lazy.nvim.txt` for more info
@@ -63,6 +68,12 @@ vim.opt.rtp:prepend(lazypath)
 --  You can configure plugins using the `config` key.
 --
 --
+--
+--#region
+-- Install barbar
+
+
+
 --  You can also configure plugins after the setup call,
 --    as they will be available in your neovim runtime.
 require('lazy').setup({
@@ -110,7 +121,6 @@ require('lazy').setup({
       'rafamadriz/friendly-snippets',
     },
   },
-
   -- Useful plugin to show you pending keybinds.
   { 'folke/which-key.nvim', opts = {} },
   {
@@ -148,6 +158,7 @@ require('lazy').setup({
     -- Theme inspired by Atom
     --
     -- }}{{++´'''
+
     'crucerucalin/peaksea.vim',
     'navarasu/onedark.nvim',
     priority = 1000,
@@ -163,11 +174,25 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'auto',
         component_separators = '|',
         section_separators = '',
       },
     },
+  },
+ {'romgrk/barbar.nvim',
+    dependencies = {
+      'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
+      'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
+      'nvim-tree/nvim-tree.lua' -- Install nvim tree
+    },
+    init = function() vim.g.barbar_auto_setup = false end,
+    opts = {
+      -- lazy.nvim will automatically call setup for you. put your options here, anything missing will use the default:
+      -- animation = true,
+      -- insert_at_start = true,
+      -- …etc.
+    },
+    version = '^1.0.0', -- optional: only update when a new 1.x version is released
   },
 
   {
@@ -554,4 +579,5 @@ cmp.setup {
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
-require("keymaps")
+require('keymaps')
+require("nvim-tree").setup()
