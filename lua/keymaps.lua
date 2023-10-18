@@ -12,4 +12,12 @@ map('n', '<C-n>',':BufferPrevious<CR>', opts)
 map('n', '<C-m>',':BufferNext<CR>', opts)
 -- Nvim Tree
 vim.api.nvim_set_keymap("n","<leader>e",":NvimTreeToggle<cr>",opts)
-
+local o = vim.opt
+o.compatible = false
+o.number = true
+o.cmdheight = 2
+vim.cmd("set syntax=true") 
+vim.cmd ("filetype plugin on")
+vim.cmd("set path+=**")
+o.wildmenu=true
+vim.cmd("set backspace=indent,eol,start")
