@@ -106,6 +106,11 @@ require('lazy').setup({
     },
   },
 
+
+
+
+
+
   {
     -- Autocompletion
     'hrsh7th/nvim-cmp',
@@ -123,6 +128,24 @@ require('lazy').setup({
   },
   -- Useful plugin to show you pending keybinds.
   { 'folke/which-key.nvim', opts = {} },
+-- ChatGptintegration to help me code faster
+{
+  "jackMort/ChatGPT.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("chatgpt").setup()
+    end,
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim"
+    }
+},
+
+
+
+
+
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
