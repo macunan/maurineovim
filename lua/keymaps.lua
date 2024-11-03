@@ -21,8 +21,7 @@ vim.cmd("set syntax=true")
 vim.cmd ("filetype plugin on")
 vim.cmd("set path+=**")
 o.wildmenu=true
-vim.cmd("set backspace=indent,eol,start")
-vim.cmd("set backspace=indent,eol,start")
+-- vim.cmd("set backspace=indent,eol,start")
 vim.cmd("map <leader>ss :setlocal spell!<cr>")
 vim.cmd("map <leader>sn ]s")
 vim.cmd("map <leader>sp [s")
@@ -30,3 +29,23 @@ vim.cmd("map <leader>sa zg")
 vim.cmd("map <leader>s? z=")
 vim.cmd("set autochdir")
 vim.cmd("autocmd FileType sql setlocal omnifunc=vim_dadbod_completion#omni")
+map('n', '<C-t>',':ToggleTerm size=5 direction=horizontal <CR>', opts)
+vim.scriptencoding = "utf-8"
+vim.opt.encoding = "utf-8"
+vim.opt.fileencoding = "utf-8"
+vim.opt.title = true
+vim.opt.autoindent = true
+vim.opt.smartindent = true
+vim.opt.hlsearch = true
+vim.opt.backup = false
+vim.opt.showcmd = true
+vim.opt.cmdheight = 0
+vim.opt.expandtab = true
+vim.opt.ignorecase = true
+vim.opt.smarttab = true
+vim.opt.shiftwidth = 2
+vim.opt.tabstop = 2
+vim.opt.backspace = { "start", "eol", "indent" }
+vim.opt.path:append({ "**" })
+-- Add asterisks in block comments
+vim.opt.formatoptions:append({ "r" })
