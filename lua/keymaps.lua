@@ -21,7 +21,7 @@ vim.cmd("set syntax=true")
 vim.cmd ("filetype plugin on")
 vim.cmd("set path+=**")
 o.wildmenu=true
--- vim.cmd("set backspace=indent,eol,start")
+vim.cmd("set backspace=indent,eol,start")
 vim.cmd("map <leader>ss :setlocal spell!<cr>")
 vim.cmd("map <leader>sn ]s")
 vim.cmd("map <leader>sp [s")
@@ -49,3 +49,4 @@ vim.opt.backspace = { "start", "eol", "indent" }
 vim.opt.path:append({ "**" })
 -- Add asterisks in block comments
 vim.opt.formatoptions:append({ "r" })
+map('n', '<C-b>',':Navbuddy <CR>',opts)
